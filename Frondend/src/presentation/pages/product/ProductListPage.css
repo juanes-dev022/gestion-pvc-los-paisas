@@ -1,0 +1,21 @@
+.action-buttons {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+:global(table th:last-child),
+:global(table td:last-child h2) {
+  width: 140px;
+  color: black;
+  text-align: right;
+  white-space: nowrap;
+}
+
+:global(.table-card h2) {
+  color: #000;
+}
+
+.sidebar {
+  min-height: 100vh;
+}

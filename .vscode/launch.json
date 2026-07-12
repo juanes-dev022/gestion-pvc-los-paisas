@@ -1,0 +1,58 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Backend: App",
+            "request": "launch",
+            "mainClass": "com.gestionpvc.App",
+            "projectName": "InventarioGestionPVC",
+            "cwd": "${workspaceFolder}/Backend/InventarioGestionPVC",
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "node",
+            "name": "Frontend: Vite Dev Server",
+            "request": "launch",
+            "program": "${workspaceFolder}/Frondend/node_modules/vite/bin/vite.js",
+            "args": ["--host", "localhost", "--port", "5173"],
+            "cwd": "${workspaceFolder}/Frondend",
+            "console": "integratedTerminal",
+            "skipFiles": ["<node_internals>/**"]
+        },
+        {
+            "type": "chrome",
+            "name": "Frontend: Chrome Debugger",
+            "request": "attach",
+            "port": 9222,
+            "pathMapping": {
+                "/": "${workspaceFolder}/Frondend/",
+                "/src": "${workspaceFolder}/Frondend/src"
+            }
+        },
+        {
+            "name": "Depuración Completa (Backend + Frontend)",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/Frondend/node_modules/vite/bin/vite.js",
+            "args": ["--host", "localhost", "--port", "5173"],
+            "cwd": "${workspaceFolder}/Frondend",
+            "console": "integratedTerminal",
+            "preLaunchTask": "Backend: Run Java",
+            "skipFiles": ["<node_internals>/**"]
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Backend + Frontend",
+            "configurations": [
+                "Backend: App",
+                "Frontend: Vite Dev Server"
+            ],
+            "stopAll": true
+        }
+    ]
+}

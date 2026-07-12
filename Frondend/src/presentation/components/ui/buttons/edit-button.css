@@ -1,0 +1,9 @@
+:global(.edit-btn) {
+  background: linear-gradient(135deg, #4d7cff, #2957d9);
+  color: #f5f7ff;
+  box-shadow: 0 12px 24px rgba(41, 87, 217, 0.25);
+}
+
+:global(.edit-btn:hover:not(:disabled)) {
+  transform: translateY(-1px);
+}

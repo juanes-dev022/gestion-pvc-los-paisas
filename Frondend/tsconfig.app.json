@@ -1,0 +1,24 @@
+{
+  "extends": "@tsconfig/svelte/tsconfig.json",
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "types": ["svelte", "vite/client"],
+    "composite": true,
+    "noEmit": false,
+    "allowJs": true,
+    "checkJs": true,
+    "moduleDetection": "force",
+    "baseUrl": ".",
+    "paths": {
+      "$application/*": ["src/application/*"],
+      "$domain/*": ["src/domain/*"],
+      "$infrastructure/*": ["src/infrastructure/*"],
+      "$presentation/*": ["src/presentation/*"],
+      "$shared/*": ["src/shared/*"]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.js", "src/**/*.svelte"]
+}

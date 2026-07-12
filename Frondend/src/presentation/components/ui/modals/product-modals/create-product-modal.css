@@ -1,0 +1,41 @@
+.create-product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-row {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.form-row--two {
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: #aeb6d2;
+}
+
+input,
+select {
+  padding: 0.65rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid rgba(92, 102, 140, 0.35);
+  background: rgba(20, 24, 36, 0.85);
+  color: #f5f6fa;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid rgba(29, 223, 114, 0.35);
+}
+
+.error-text {
+  color: #ff7b7b;
+  font-size: 0.85rem;
+}

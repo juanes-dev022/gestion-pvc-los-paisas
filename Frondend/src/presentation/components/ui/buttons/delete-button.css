@@ -1,0 +1,9 @@
+:global(.delete-btn) {
+  background: linear-gradient(135deg, #ff5f6d, #c81d25);
+  color: #fff7f7;
+  box-shadow: 0 12px 24px rgba(200, 29, 37, 0.25);
+}
+
+:global(.delete-btn:hover:not(:disabled)) {
+  transform: translateY(-1px);
+}

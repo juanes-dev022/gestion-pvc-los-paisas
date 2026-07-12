@@ -1,0 +1,35 @@
+.action-buttons {
+  display: inline-flex;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.btn-save {
+  margin-top: 1rem;
+  padding: 0.65rem 1.5rem;
+  background: linear-gradient(135deg, #1ddf72, #0fb863);
+  color: #041206;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(15, 184, 99, 0.3);
+  transition: opacity 0.2s;
+}
+
+.btn-save:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.success {
+  color: #0fb863;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.error {
+  color: #e55353;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
