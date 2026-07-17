@@ -39,7 +39,7 @@
 
   // ── Editar ─────────────────────────────────────────────────
   function openUpdateModal(row: Record<string, unknown>) {
-    selectedProduct = products.find((p) => p.id === Number(row.id)) ?? null
+    selectedProduct = products.find((p) => p.id === String(row.id)) ?? null
     if (selectedProduct) showUpdateModal = true
   }
 
@@ -55,7 +55,7 @@
 
   // ── Eliminar ───────────────────────────────────────────────
   function openDeleteModal(row: Record<string, unknown>) {
-    selectedProduct = products.find((p) => p.id === Number(row.id)) ?? null
+    selectedProduct = products.find((p) => p.id === String(row.id)) ?? null
     if (selectedProduct) showDeleteModal = true
   }
 

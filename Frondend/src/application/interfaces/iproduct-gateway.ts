@@ -5,6 +5,6 @@ export interface IProductGateway {
   getAll(): Promise<Product[]>
   create(data: CreateProductDto): Promise<Product>
   update(data: UpdateProductDto): Promise<Product>
-  delete(data: number): Promise<void>
-  getById(data: number): Promise<Product>
+  delete(data: string): Promise<void>
+  getById(data: string): Promise<Product>
 }

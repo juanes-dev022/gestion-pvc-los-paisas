@@ -1,20 +1,25 @@
 package com.gestionpvc.controllers;
 
 
-import com.gestionpvc.applications.interfaces.iusecase.iproductusecase.ICreateProductUseCase;
-import com.gestionpvc.applications.interfaces.iusecase.iproductusecase.IDeleteProductUseCase;
-import com.gestionpvc.applications.interfaces.iusecase.iproductusecase.IGetAllProductUseCase;
-import com.gestionpvc.applications.interfaces.iusecase.iproductusecase.IUpdateProductUseCase;
-import com.gestionpvc.applications.interfaces.iusecase.iproductusecase.IGetProductUseCase;
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.gestionpvc.App;
 import com.gestionpvc.applications.Exceptions.CustomBadRequestException;
 import com.gestionpvc.applications.Exceptions.CustomNotFoundException;
 import com.gestionpvc.applications.dtos.product.CreateProductDto;
-import com.gestionpvc.applications.dtos.product.UpdateProductDto;
 import com.gestionpvc.applications.dtos.product.ProductDto;
+import com.gestionpvc.applications.dtos.product.UpdateProductDto;
+import com.gestionpvc.applications.interfaces.iusecase.iproductusecase.ICreateProductUseCase;
+import com.gestionpvc.applications.interfaces.iusecase.iproductusecase.IDeleteProductUseCase;
+import com.gestionpvc.applications.interfaces.iusecase.iproductusecase.IGetAllProductUseCase;
+import com.gestionpvc.applications.interfaces.iusecase.iproductusecase.IGetProductUseCase;
+import com.gestionpvc.applications.interfaces.iusecase.iproductusecase.IUpdateProductUseCase;
 
-import io.javalin.http.Context;
 import io.javalin.Javalin;
-import java.util.List;
+import io.javalin.http.Context;
 
 public final class ProductController {
     private final IGetAllProductUseCase getAllUseCase;
@@ -22,6 +27,7 @@ public final class ProductController {
     private final ICreateProductUseCase createUseCase;
     private final IUpdateProductUseCase updateUseCase;
     private final IDeleteProductUseCase deleteUseCase;
+    private static final Logger logger = LoggerFactory.getLogger(App.class);
 
     public ProductController(
             IGetAllProductUseCase getAllUseCase,
@@ -115,7 +121,8 @@ public final class ProductController {
         } else if (ex instanceof CustomBadRequestException) {
             ctx.status(400).json(ex.getMessage());
         } else {
-            ctx.status(500).json("Error interno");
+            logger.error("Error en {} {}", ctx.method(), ctx.path(), ex);
+            ctx.status(500).json("Error internooo");
         }
     }
 }

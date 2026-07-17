@@ -10,5 +10,5 @@ export interface CreateProductDto {
 }
 
 export interface UpdateProductDto extends Partial<CreateProductDto> {
-  id: number
+  id: string
 }

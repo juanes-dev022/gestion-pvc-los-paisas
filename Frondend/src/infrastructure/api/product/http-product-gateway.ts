@@ -16,11 +16,11 @@ export class HttpProductGateway implements IProductGateway {
     return httpClient.put<UpdateProductDto, Product>(`/products/${data.id}`, data)
   }
 
-  async delete(id: number): Promise<void> {
+  async delete(id: string): Promise<void> {
     return httpClient.delete<void>(`/products/${id}`)
   }
 
-  async getById(id: number): Promise<Product> {
+  async getById(id: string): Promise<Product> {
     return httpClient.get<Product>(`/product/${id}`)
   }
 }

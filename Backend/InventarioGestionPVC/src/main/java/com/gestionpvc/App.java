@@ -6,18 +6,19 @@ import javax.sql.DataSource;
 import com.gestionpvc.applications.usecase.productusecase.CreateProductUseCase;
 import com.gestionpvc.applications.usecase.productusecase.DeleteProductUseCase;
 import com.gestionpvc.applications.usecase.productusecase.GetAllProductUseCase;
-import com.gestionpvc.applications.usecase.productusecase.UpdateProductUseCase;
 import com.gestionpvc.applications.usecase.productusecase.GetProductUseCase;
+import com.gestionpvc.applications.usecase.productusecase.UpdateProductUseCase;
 import com.gestionpvc.applications.usecase.saleusecase.CreateSaleUseCase;
 import com.gestionpvc.applications.usecase.saleusecase.DeleteSaleUseCase;
 import com.gestionpvc.applications.usecase.saleusecase.GetAllSalesUseCase;
-import com.gestionpvc.applications.usecase.saleusecase.UpdateSaleUseCase;
 import com.gestionpvc.applications.usecase.saleusecase.GetSaleUseCase;
-import com.gestionpvc.infrastructures.repositories.ProductRepository;
-import com.gestionpvc.infrastructures.repositories.SaleRepository;
-import com.gestionpvc.infrastructures.config.DbConfigurator;
+import com.gestionpvc.applications.usecase.saleusecase.UpdateSaleUseCase;
 import com.gestionpvc.controllers.ProductController;
 import com.gestionpvc.controllers.SaleController;
+import com.gestionpvc.infrastructures.config.DbConfigurator;
+import com.gestionpvc.infrastructures.repositories.ProductRepository;
+import com.gestionpvc.infrastructures.repositories.SaleRepository;
+
 import io.javalin.Javalin;
 
 
@@ -55,8 +56,8 @@ public class App {
         });
         
         app.exception(Exception.class, (e, ctx) -> {
-            e.printStackTrace();                
-            ctx.status(500).json("Error interno");
+            e.printStackTrace();
+            ctx.status(500).result("Error interno: " + e.getMessage());
         });
         
         // 📡 Registrar rutas

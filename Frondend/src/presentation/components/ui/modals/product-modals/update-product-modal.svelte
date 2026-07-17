@@ -24,7 +24,7 @@
   const updateUseCase = new UpdateProductUseCase(gateway)
 
   type FormState = {
-    id:            number | null
+    id:            string | null
     name:          string
     purchaseValue: number
     stock:         number

@@ -1,7 +1,7 @@
 package com.gestionpvc.applications.usecase.saleusecase;
 
-import com.gestionpvc.applications.interfaces.iusecase.isaleusecase.IDeleteSaleUseCase;
 import com.gestionpvc.applications.interfaces.irepositories.ISaleRepository;
+import com.gestionpvc.applications.interfaces.iusecase.isaleusecase.IDeleteSaleUseCase;
 
 public class DeleteSaleUseCase implements IDeleteSaleUseCase {
     private final ISaleRepository repository;
@@ -16,6 +16,8 @@ public class DeleteSaleUseCase implements IDeleteSaleUseCase {
             return false;
         }
         repository.delete(id);
+        System.out.println(id);
         return true;
+
     }
 }
