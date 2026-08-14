@@ -1,4 +1,4 @@
-import type { IProductGateway } from '$application/interfaces/iproduct-gateway'
+import type { IProductGateway } from '$application/interfaces/product-gateway.interface'
 
 export class DeleteProductUseCase {
   constructor(private readonly gateway: IProductGateway) {}

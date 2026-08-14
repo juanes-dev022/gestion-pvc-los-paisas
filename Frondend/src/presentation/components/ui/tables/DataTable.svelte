@@ -11,9 +11,9 @@
   import './data-table.css'
 
   let {
-    title        = '',
-    columns      = [],
-    rows         = [],
+    title = '',
+    columns = [],
+    rows = [],
     emptyMessage = 'Sin registros',
     headerActions,
     toolbar,

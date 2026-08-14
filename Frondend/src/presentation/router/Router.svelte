@@ -1,7 +1,7 @@
 <script lang="ts">
+  import { router } from '../stores/navigation.store'
   import { onDestroy, onMount } from 'svelte'
   import type { Component } from 'svelte'
-  import { router } from '../stores/store-navigation'
   import { defaultRoute } from './routes'
 
   let PageComponent: Component | null = null

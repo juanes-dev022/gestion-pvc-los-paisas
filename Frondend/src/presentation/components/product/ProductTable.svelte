@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Product } from '$domain/Products/Product'
+  import type { Product } from '$domain/product/Product'
 
   export let products: Product[] = []
 </script>

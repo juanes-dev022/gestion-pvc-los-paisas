@@ -1,6 +1,8 @@
-import type { CreateProductDto } from '$application/dtos/Product-dto'
-import type { IProductGateway } from '$application/interfaces/iproduct-gateway'
-import type { Product } from '$domain/Products/Product'
+
+
+import type { IProductGateway } from '$application/interfaces/product-gateway.interface'
+import type { CreateProductDto } from '$application/dtos/product.dto'
+import type { Product } from '$domain/product/Product'
 
 export class CreateProductUseCase {
   constructor(private readonly gateway: IProductGateway) {}

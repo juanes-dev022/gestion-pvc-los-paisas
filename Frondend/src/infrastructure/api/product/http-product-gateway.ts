@@ -1,6 +1,6 @@
-import type { CreateProductDto, UpdateProductDto } from '$application/dtos/Product-dto'
-import type { IProductGateway } from '$application/interfaces/iproduct-gateway'
-import type { Product } from '$domain/Products/Product'
+import type { CreateProductDto, UpdateProductDto } from '$application/dtos/product.dto'
+import type { IProductGateway } from '$application/interfaces/product-gateway.interface'
+import type { Product } from '$domain/product/Product'
 import { httpClient } from '$infrastructure/api/http-client'
 
 export class HttpProductGateway implements IProductGateway {

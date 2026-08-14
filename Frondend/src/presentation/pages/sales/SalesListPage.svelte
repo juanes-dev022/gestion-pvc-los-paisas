@@ -1,18 +1,19 @@
+
+
 <script lang="ts">
-  import ProductSearchInput from '$presentation/components/search/sales-search/product-search/product-search-input.svelte'
-  import { GetAllProductsUseCase } from '$application/usecases/productusecase/get-all-products.usecase'
-  import SaleDetailsTable  from '$presentation/components/ui/tables/sales/sale-items-table.svelte'
-  import SavedSalesTable from '$presentation/components/ui/tables/sales/saved-sales-table.svelte'
-  // ── Botón nuevo ────────────────────────────────────────────
-  import SaveSaleButton  from '$presentation/components/ui/buttons/save-sale-button.svelte'
+  import ProductSearchInput from '$presentation/components/search/product/ProductSearchInput.svelte'
+  import { GetAllProductsUseCase } from '$application/usecases/product/get-all-products.usecase'
+  import SaleDetailsTable  from '$presentation/components/ui/tables/sales/SaleItemsTable.svelte'
+  import { sales, saving, saveError, saveSale, initSales } from '$presentation/stores/sale.store'
+  import SavedSalesTable from '$presentation/components/ui/tables/sales/SavedSalesTable.svelte'
+  import SaveSaleButton  from '$presentation/components/ui/buttons/SaveSaleButton.svelte'
   import { HttpProductGateway } from '$infrastructure/api/product/http-product-gateway'
   import AppHeader       from '$presentation/components/ui/header/AppHeader.svelte'
-  import { sales, saving, saveError, saveSale, initSales } from '$presentation/stores/sale.store'
-  import type { Product }  from '$domain/Products/Product'
-  import type { SaleItem } from '$domain/Sales/SaleItem'
-  import type { CreateSaleItemDto } from '$application/dtos/Sale-dto'
+  import type { CreateSaleItemDto } from '$application/dtos/sale.dto'
+  import type { Product }  from '$domain/product/Product'
+  import type { SaleItem } from '$domain/sale/SaleItem'
   import { onMount }       from 'svelte'
-  import './SalesListPage.css'
+  import './sales-list-page.css'
 
   const gateway = new HttpProductGateway()
   const getAllProductsUseCase = new GetAllProductsUseCase(gateway)

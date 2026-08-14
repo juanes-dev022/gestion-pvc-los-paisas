@@ -1,5 +1,5 @@
-import type { IProductGateway } from '$application/interfaces/iproduct-gateway'
-import type { Product } from '$domain/Products/Product'
+import type { IProductGateway } from '$application/interfaces/product-gateway.interface'
+import type { Product } from '$domain/product/Product'
 
 export class GetAllProductsUseCase {
   constructor(private readonly gateway: IProductGateway) {}

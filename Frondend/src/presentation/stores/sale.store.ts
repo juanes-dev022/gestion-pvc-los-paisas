@@ -1,8 +1,8 @@
-import { HttpSaleGateway } from '$infrastructure/api/apisales/http-sale-gateway'
-import { GetAllSalesUseCase }  from '$application/usecases/saleusecase/get-all-sales.usecase'
-import { SaveSaleUseCase }     from '$application/usecases/saleusecase/save-sale.usecase'
-import type { Sale }           from '$domain/Sales/Sale'
-import type { CreateSaleItemDto, CreateSaleDto, UpdateSaleDto } from '$application/dtos/Sale-dto'
+import { HttpSaleGateway } from '$infrastructure/api/sale/http-sale-gateway'
+import { GetAllSalesUseCase }  from '$application/usecases/sale/get-all-sales.usecase'
+import { SaveSaleUseCase }     from '$application/usecases/sale/save-sale.usecase'
+import type { Sale }           from '$domain/sale/Sale'
+import type { CreateSaleItemDto, CreateSaleDto, UpdateSaleDto } from '$application/dtos/sale.dto'
 import { writable }            from 'svelte/store'
 
 const gateway          = new HttpSaleGateway()

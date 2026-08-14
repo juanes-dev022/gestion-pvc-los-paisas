@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-  import { router, activeRouteId } from '$presentation/stores/store-navigation'
+  import { router, activeRouteId } from '$presentation/stores/navigation.store'
   import { routes } from '$presentation/router/routes'
   import type { Snippet } from 'svelte'
   import './sidebar.css'

@@ -1,5 +1,5 @@
-import type { CreateProductDto, UpdateProductDto } from '$application/dtos/Product-dto'
-import type { Product } from '$domain/Products/Product'
+import type { CreateProductDto, UpdateProductDto } from '$application/dtos/product.dto'
+import type { Product } from '$domain/product/Product'
 
 export interface IProductGateway {
   getAll(): Promise<Product[]>

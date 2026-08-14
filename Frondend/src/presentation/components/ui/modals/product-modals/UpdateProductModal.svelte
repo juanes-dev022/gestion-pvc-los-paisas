@@ -1,26 +1,30 @@
 <script lang="ts">
-  import type { CreateProductDto } from '$application/dtos/Product-dto'
-  import { CreateProductUseCase } from '$application/usecases/productusecase/create-product.usecase'
-  import type { Product } from '$domain/Products/Product'
+  import type { UpdateProductDto } from '$application/dtos/product.dto'
+  import { UpdateProductUseCase } from '$application/usecases/product/update-product.usecase'
+  import type { Product } from '$domain/product/Product'
   import { HttpProductGateway } from '$infrastructure/api/product/http-product-gateway'
   import Button from '$presentation/components/ui/buttons/Button.svelte'
+  import EditButton from '$presentation/components/ui/buttons/EditButton.svelte'
   import Modal from '$presentation/components/ui/modals/Modal.svelte'
   import './create-product-modal.css'
 
   let {
     open = false,
+    product = null,
     onclose,
-    oncreated
+    onupdated
   }: {
     open?:      boolean
+    product?:   Product | null
     onclose?:   () => void
-    oncreated?: (product: Product) => void
+    onupdated?: (product: Product) => void
   } = $props()
 
   const gateway     = new HttpProductGateway()
-  const createUseCase = new CreateProductUseCase(gateway)
+  const updateUseCase = new UpdateProductUseCase(gateway)
 
   type FormState = {
+    id:            string | null
     name:          string
     purchaseValue: number
     stock:         number
@@ -30,16 +34,13 @@
   let submitting = $state(false)
   let error: string | null = $state(null)
   let form: FormState = $state({
-    name:          '',
-    purchaseValue: 0,
-    stock:         0,
-    active:        'true'
+    id: null, name: '', purchaseValue: 0, stock: 0, active: 'true'
   })
 
-  const formId = 'create-product-form'
+  const formId = 'update-product-form'
 
   const reset = () => {
-    form  = { name: '', purchaseValue: 0, stock: 0, active: 'true' }
+    form  = { id: null, name: '', purchaseValue: 0, stock: 0, active: 'true' }
     error = null
   }
 
@@ -48,18 +49,33 @@
     onclose?.()
   }
 
+  $effect(() => {
+    if (open && product) {
+      form = {
+        id:            product.id,
+        name:          product.name,
+        purchaseValue: product.purchaseValue,
+        stock:         product.stock,
+        active:        product.active ? 'true' : 'false'
+      }
+      error = null
+    }
+  })
+
   const handleSubmit = async () => {
+    if (!form.id) return
     submitting = true
     error      = null
     try {
-      const payload: CreateProductDto = {
+      const payload: UpdateProductDto = {
+        id:            form.id,
         name:          form.name.trim(),
         purchaseValue: form.purchaseValue,
         stock:         form.stock,
         active:        form.active === 'true'
       }
-      const created = await createUseCase.execute(payload)
-      oncreated?.(created)
+      const updated = await updateUseCase.execute(payload)
+      onupdated?.(updated)
       handleClose()
     } catch (err) {
       error = err instanceof Error ? err.message : 'Ocurrió un error'
@@ -69,7 +85,7 @@
   }
 </script>
 
-<Modal {open} title="Crear producto" onclose={handleClose}>
+<Modal {open} title="Editar producto" onclose={handleClose}>
 
   {#snippet children()}
     <form id={formId} class="create-product-form" onsubmit={(e) => { e.preventDefault(); handleSubmit() }}>
@@ -109,9 +125,9 @@
 
   {#snippet actions()}
     <Button variant="ghost" type="button" onclick={handleClose}>Cancelar</Button>
-    <Button type="button" variant="success" disabled={submitting} onclick={handleSubmit}>
-      {submitting ? 'Guardando...' : 'Guardar'}
-    </Button>
+    <EditButton type="button" disabled={submitting} onclick={handleSubmit}>
+      {submitting ? 'Guardando...' : 'Actualizar'}
+    </EditButton>
   {/snippet}
 
 </Modal>

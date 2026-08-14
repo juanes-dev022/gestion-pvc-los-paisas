@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Sale } from '$domain/Sales/Sale'
+  import type { Sale } from '$domain/sale/Sale'
   import '../data-table.css'
 
   let { sales }: { sales: Sale[] } = $props()

@@ -1,6 +1,6 @@
-import type { ISaleGateway }  from '$application/interfaces/isale-gateway'
-import type { CreateSaleDto } from '$application/dtos/Sale-dto'
-import type { Sale }  from '$domain/Sales/Sale'
+import type { ISaleGateway }  from '$application/interfaces/sale-gateway.interface'
+import type { CreateSaleDto } from '$application/dtos/sale.dto'
+import type { Sale }  from '$domain/sale/Sale'
 
 export class SaveSaleUseCase {
   constructor(private readonly gateway: ISaleGateway) {}

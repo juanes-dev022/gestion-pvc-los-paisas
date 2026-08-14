@@ -1,0 +1,220 @@
+ESTRUCTURA DEL PROYECTO
+Generado: vie 14 ago 2026 09:16:40 -05
+========================================
+
+## ÁRBOL DE CARPETAS Y ARCHIVOS
+
+./src
+├── application
+│   ├── dtos
+│   │   ├── Product-dto.ts
+│   │   └── Sale-dto.ts
+│   ├── interfaces
+│   │   ├── iproduct-gateway.ts
+│   │   └── isale-gateway.ts
+│   └── usecases
+│       ├── productusecase
+│       │   ├── create-product.usecase.ts
+│       │   ├── delete-product.usecase.ts
+│       │   ├── get-all-products.usecase.ts
+│       │   ├── get-by-id-product.usecase.ts
+│       │   └── update-product.usecase.ts
+│       └── saleusecase
+│           ├── get-all-sales.usecase.ts
+│           └── save-sale.usecase.ts
+├── domain
+│   ├── Products
+│   │   └── Product.ts
+│   └── Sales
+│       ├── SaleItem.ts
+│       └── Sale.ts
+├── infrastructure
+│   └── api
+│       ├── apisales
+│       │   └── http-sale-gateway.ts
+│       ├── product
+│       │   └── http-product-gateway.ts
+│       └── http-client.ts
+├── presentation
+│   ├── components
+│   │   ├── product-components
+│   │   │   └── ProductTable.svelte
+│   │   ├── search
+│   │   │   └── sales-search
+│   │   │       └── product-search
+│   │   │           ├── product-search-input.css
+│   │   │           └── ProductSearchInput.svelte
+│   │   └── ui
+│   │       ├── buttons
+│   │       │   ├── button.css
+│   │       │   ├── Button.svelte
+│   │       │   ├── CreateButton.svelte
+│   │       │   ├── delete-button.css
+│   │       │   ├── DeleteButton.svelte
+│   │       │   ├── edit-button.css
+│   │       │   ├── EditButton.svelte
+│   │       │   └── SaveSaleButton.svelte
+│   │       ├── header
+│   │       │   ├── app-header.css
+│   │       │   └── AppHeader.svelte
+│   │       ├── modals
+│   │       │   ├── product-modals
+│   │       │   │   ├── create-product-modal.css
+│   │       │   │   ├── CreateProductModal.svelte
+│   │       │   │   └── UpdateProductModal.svelte
+│   │       │   ├── ConfirmModal.svelte
+│   │       │   ├── modal.css
+│   │       │   └── Modal.svelte
+│   │       ├── sidebar
+│   │       │   ├── sidebar.css
+│   │       │   └── Sidebar.svelte
+│   │       └── tables
+│   │           ├── sales
+│   │           │   ├── sale-items-table.svelte
+│   │           │   └── SavedSalesTable.svelte
+│   │           ├── data-table.css
+│   │           └── DataTable.svelte
+│   ├── pages
+│   │   ├── dashboard
+│   │   │   └── DashboardPage.svelte
+│   │   ├── product
+│   │   │   ├── product-list-page.css
+│   │   │   └── ProductListPage.svelte
+│   │   └── sales
+│   │       ├── sales-list-page.css
+│   │       └── SalesListPage.svelte
+│   ├── router
+│   │   ├── Router.svelte
+│   │   └── routes.ts
+│   └── stores
+│       ├── menu.store.ts
+│       ├── navigation.store.ts
+│       └── sale.store.ts
+├── shared
+│   ├── styles
+│   └── utils
+├── app.css
+├── App.svelte
+├── App.test.ts
+└── main.ts
+
+37 directories, 56 files
+
+========================================
+## DETALLE POR ARCHIVO (ruta, líneas, tamaño)
+
+./src/app.css  |  65 líneas  |  4,0K
+./src/application/dtos/Product-dto.ts  |  14 líneas  |  4,0K
+./src/application/dtos/Sale-dto.ts  |  19 líneas  |  4,0K
+./src/application/interfaces/iproduct-gateway.ts  |  10 líneas  |  4,0K
+./src/application/interfaces/isale-gateway.ts  |  11 líneas  |  4,0K
+./src/application/usecases/productusecase/create-product.usecase.ts  |  24 líneas  |  4,0K
+./src/application/usecases/productusecase/delete-product.usecase.ts  |  10 líneas  |  4,0K
+./src/application/usecases/productusecase/get-all-products.usecase.ts  |  10 líneas  |  4,0K
+./src/application/usecases/productusecase/get-by-id-product.usecase.ts  |  10 líneas  |  4,0K
+./src/application/usecases/productusecase/update-product.usecase.ts  |  20 líneas  |  4,0K
+./src/application/usecases/saleusecase/get-all-sales.usecase.ts  |  9 líneas  |  4,0K
+./src/application/usecases/saleusecase/save-sale.usecase.ts  |  12 líneas  |  4,0K
+./src/App.svelte  |  21 líneas  |  4,0K
+./src/App.test.ts  |  24 líneas  |  4,0K
+./src/domain/Products/Product.ts  |  7 líneas  |  4,0K
+./src/domain/Sales/SaleItem.ts  |  9 líneas  |  4,0K
+./src/domain/Sales/Sale.ts  |  8 líneas  |  4,0K
+./src/infrastructure/api/apisales/http-sale-gateway.ts  |  26 líneas  |  4,0K
+./src/infrastructure/api/http-client.ts  |  37 líneas  |  4,0K
+./src/infrastructure/api/product/http-product-gateway.ts  |  26 líneas  |  4,0K
+./src/main.ts  |  9 líneas  |  4,0K
+./src/presentation/components/product-components/ProductTable.svelte  |  38 líneas  |  4,0K
+./src/presentation/components/search/sales-search/product-search/product-search-input.css  |  58 líneas  |  4,0K
+./src/presentation/components/search/sales-search/product-search/ProductSearchInput.svelte  |  64 líneas  |  4,0K
+./src/presentation/components/ui/buttons/button.css  |  18 líneas  |  4,0K
+./src/presentation/components/ui/buttons/Button.svelte  |  37 líneas  |  4,0K
+./src/presentation/components/ui/buttons/CreateButton.svelte  |  29 líneas  |  4,0K
+./src/presentation/components/ui/buttons/delete-button.css  |  9 líneas  |  4,0K
+./src/presentation/components/ui/buttons/DeleteButton.svelte  |  29 líneas  |  4,0K
+./src/presentation/components/ui/buttons/edit-button.css  |  9 líneas  |  4,0K
+./src/presentation/components/ui/buttons/EditButton.svelte  |  31 líneas  |  4,0K
+./src/presentation/components/ui/buttons/SaveSaleButton.svelte  |  28 líneas  |  4,0K
+./src/presentation/components/ui/header/app-header.css  |  51 líneas  |  4,0K
+./src/presentation/components/ui/header/AppHeader.svelte  |  22 líneas  |  4,0K
+./src/presentation/components/ui/modals/ConfirmModal.svelte  |  31 líneas  |  4,0K
+./src/presentation/components/ui/modals/modal.css  |  90 líneas  |  4,0K
+./src/presentation/components/ui/modals/Modal.svelte  |  66 líneas  |  4,0K
+./src/presentation/components/ui/modals/product-modals/create-product-modal.css  |  41 líneas  |  4,0K
+./src/presentation/components/ui/modals/product-modals/CreateProductModal.svelte  |  117 líneas  |  4,0K
+./src/presentation/components/ui/modals/product-modals/UpdateProductModal.svelte  |  133 líneas  |  4,0K
+./src/presentation/components/ui/sidebar/sidebar.css  |  70 líneas  |  4,0K
+./src/presentation/components/ui/sidebar/Sidebar.svelte  |  66 líneas  |  4,0K
+./src/presentation/components/ui/tables/data-table.css  |  115 líneas  |  4,0K
+./src/presentation/components/ui/tables/DataTable.svelte  |  108 líneas  |  4,0K
+./src/presentation/components/ui/tables/sales/sale-items-table.svelte  |  85 líneas  |  4,0K
+./src/presentation/components/ui/tables/sales/SavedSalesTable.svelte  |  32 líneas  |  4,0K
+./src/presentation/pages/dashboard/DashboardPage.svelte  |  0 líneas  |  0
+./src/presentation/pages/product/product-list-page.css  |  21 líneas  |  4,0K
+./src/presentation/pages/product/ProductListPage.svelte  |  159 líneas  |  8,0K
+./src/presentation/pages/sales/sales-list-page.css  |  35 líneas  |  4,0K
+./src/presentation/pages/sales/SalesListPage.svelte  |  175 líneas  |  8,0K
+./src/presentation/router/Router.svelte  |  47 líneas  |  4,0K
+./src/presentation/router/routes.ts  |  35 líneas  |  4,0K
+./src/presentation/stores/menu.store.ts  |  8 líneas  |  4,0K
+./src/presentation/stores/navigation.store.ts  |  26 líneas  |  4,0K
+./src/presentation/stores/sale.store.ts  |  75 líneas  |  4,0K
+
+========================================
+## RESUMEN POR CARPETA (cantidad de archivos)
+
+      8 ./src/presentation/components/ui/buttons
+      5 ./src/application/usecases/productusecase
+      4 ./src
+      3 ./src/presentation/stores
+      3 ./src/presentation/components/ui/modals/product-modals
+      3 ./src/presentation/components/ui/modals
+      2 ./src/presentation/router
+      2 ./src/presentation/pages/sales
+      2 ./src/presentation/pages/product
+      2 ./src/presentation/components/ui/tables/sales
+      2 ./src/presentation/components/ui/tables
+      2 ./src/presentation/components/ui/sidebar
+      2 ./src/presentation/components/ui/header
+      2 ./src/presentation/components/search/sales-search/product-search
+      2 ./src/domain/Sales
+      2 ./src/application/usecases/saleusecase
+      2 ./src/application/interfaces
+      2 ./src/application/dtos
+      1 ./src/presentation/pages/dashboard
+      1 ./src/presentation/components/product-components
+      1 ./src/infrastructure/api/product
+      1 ./src/infrastructure/api/apisales
+      1 ./src/infrastructure/api
+      1 ./src/domain/Products
+
+========================================
+## DETECCIÓN DE CAPAS TÍPICAS (Clean Architecture / DDD)
+
+✅ Carpeta relacionada con 'domain':
+    ./src/domain
+✅ Carpeta relacionada con 'application':
+    ./src/application
+✅ Carpeta relacionada con 'usecases':
+    ./src/application/usecases
+✅ Carpeta relacionada con 'infrastructure':
+    ./src/infrastructure
+✅ Carpeta relacionada con 'interfaces':
+    ./src/application/interfaces
+✅ Carpeta relacionada con 'presentation':
+    ./src/presentation
+✅ Carpeta relacionada con 'components':
+    ./src/presentation/components
+    ./src/presentation/components/product-components
+✅ Carpeta relacionada con 'pages':
+    ./src/presentation/pages
+✅ Carpeta relacionada con 'store':
+    ./src/presentation/stores
+✅ Carpeta relacionada con 'dto':
+    ./src/application/dtos
+
+========================================
+## CONTEO TOTAL
+
+Total de archivos: 56
+Total de carpetas: 37

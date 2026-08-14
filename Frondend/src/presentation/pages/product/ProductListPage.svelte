@@ -1,18 +1,18 @@
 <script lang="ts">
-  import CreateProductModal from '$presentation/components/ui/modals/product-modals/create-product-modal.svelte'
-  import UpdateProductModal from '$presentation/components/ui/modals/product-modals/update-product-modal.svelte'
-  import { GetAllProductsUseCase } from '$application/usecases/productusecase/get-all-products.usecase'
-  import { DeleteProductUseCase } from '$application/usecases/productusecase/delete-product.usecase'
+  import CreateProductModal from '$presentation/components/ui/modals/product-modals/CreateProductModal.svelte'
+  import UpdateProductModal from '$presentation/components/ui/modals/product-modals/UpdateProductModal.svelte'
+  import { GetAllProductsUseCase } from '$application/usecases/product/get-all-products.usecase'
+  import { DeleteProductUseCase } from '$application/usecases/product/delete-product.usecase'
   import DataTable, { type Column } from '$presentation/components/ui/tables/DataTable.svelte'
   import { HttpProductGateway } from '$infrastructure/api/product/http-product-gateway'
-  import CreateButton from '$presentation/components/ui/buttons/create-button.svelte'
-  import DeleteButton from '$presentation/components/ui/buttons/delete-button.svelte'
+  import CreateButton from '$presentation/components/ui/buttons/CreateButton.svelte'
+  import DeleteButton from '$presentation/components/ui/buttons/DeleteButton.svelte'
   import ConfirmModal from '$presentation/components/ui/modals/ConfirmModal.svelte'
-  import EditButton   from '$presentation/components/ui/buttons/edit-button.svelte'
+  import EditButton   from '$presentation/components/ui/buttons/EditButton.svelte'
   import AppHeader    from '$presentation/components/ui/header/AppHeader.svelte'
-  import type { Product } from '$domain/Products/Product'
+  import type { Product } from '$domain/product/Product'
   import { onMount } from 'svelte'
-  import './ProductListPage.css'
+  import './product-list-page.css'
 
   const gateway = new HttpProductGateway()
   const getAllProductsUseCase = new GetAllProductsUseCase(gateway)

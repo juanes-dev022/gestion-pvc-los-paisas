@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { SaleItem } from '$domain/Sales/SaleItem'
+  import type { SaleItem } from '$domain/sale/SaleItem'
   import '../data-table.css'
 
   let {

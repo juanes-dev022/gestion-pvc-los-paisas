@@ -1,5 +1,5 @@
-import type { ISaleGateway } from '$application/interfaces/isale-gateway'
-import type { Sale } from '$domain/Sales/Sale'
+import type { ISaleGateway } from '$application/interfaces/sale-gateway.interface'
+import type { Sale } from '$domain/sale/Sale'
 
 export class GetAllSalesUseCase {
   constructor(private readonly gateway: ISaleGateway) {}

@@ -1,6 +1,6 @@
-import type { CreateSaleDto, UpdateSaleDto } from '$application/dtos/Sale-dto'
-import type { ISaleGateway } from '$application/interfaces/isale-gateway'
-import type { Sale } from '$domain/Sales/Sale'
+import type { CreateSaleDto, UpdateSaleDto } from '$application/dtos/sale.dto'
+import type { ISaleGateway } from '$application/interfaces/sale-gateway.interface'
+import type { Sale } from '$domain/sale/Sale'
 import { httpClient } from '$infrastructure/api/http-client'
 
 export class HttpSaleGateway implements ISaleGateway {

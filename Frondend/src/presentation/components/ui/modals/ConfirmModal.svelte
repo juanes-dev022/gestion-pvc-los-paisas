@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Snippet } from 'svelte'
   import Button from '$presentation/components/ui/buttons/Button.svelte'
-  import DeleteButton from '$presentation/components/ui/buttons/delete-button.svelte'
+  import DeleteButton from '$presentation/components/ui/buttons/DeleteButton.svelte'
   import Modal from './Modal.svelte'
 
   let {
