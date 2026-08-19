@@ -1,3 +1,5 @@
+
+
 import type { Product } from '$domain/product/Product'
 
 export type ProductDto = Product
